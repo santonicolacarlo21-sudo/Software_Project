@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="631.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.testController">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="851.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="142.0" prefWidth="853.0">
+               <children>
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="851.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button fx:id="undoItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#undoAction" prefHeight="25.0" prefWidth="34.0">
+                           <graphic>
+                              <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/undo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="855.0" HBox.hgrow="ALWAYS">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="File">
+                              <items>
+                                    <MenuItem fx:id="newItem" mnemonicParsing="false" onAction="#newDraw" text="New" />
+                                <MenuItem mnemonicParsing="false" onAction="#exportAction" text="Export as png..." />
+                                    <MenuItem fx:id="saveItem" mnemonicParsing="false" onAction="#saveAction" text="Save As..." />
+                                    <MenuItem fx:id="loadItem" mnemonicParsing="false" onAction="#loadAction" text="Load" />
+                              </items>
+                            </Menu>
+                          </menus>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </MenuBar>
+                     </children>
+                  </HBox>
+                  <CheckBox fx:id="checkGrid" contentDisplay="CENTER" layoutX="750.0" layoutY="45.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#gridAction" translateX="10.0">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" translateX="10.0">
+                           <image>
+                              <Image url="@images/grid.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></CheckBox>
+                  <MenuButton fx:id="menuGrid" layoutX="754.0" layoutY="85.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Small" AnchorPane.bottomAnchor="32.0">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#gridSmall" text="Small" />
+                        <MenuItem mnemonicParsing="false" onAction="#gridMedium" text="Medium" />
+                      <MenuItem mnemonicParsing="false" onAction="#gridLarge" text="Large" />
+                    </items>
+                  </MenuButton>
+                  <GridPane layoutX="525.0" layoutY="27.0" prefHeight="71.0" prefWidth="191.0" style="-fx-border-color: Black; -fx-background-color: White;" AnchorPane.bottomAnchor="18.0" AnchorPane.topAnchor="45.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="blueBtn" mnemonicParsing="false" onAction="#blueAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Blue; -fx-border-color: Black;" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="greenBtn" mnemonicParsing="false" onAction="#greenAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Green; -fx-border-color: Black;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="pinkBtn" mnemonicParsing="false" onAction="#pinkAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Pink; -fx-border-color: Black;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="yellowBtn" mnemonicParsing="false" onAction="#yellowAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Yellow; -fx-border-color: Black;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="redBtn" mnemonicParsing="false" onAction="#redAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Red; -fx-border-color: Black;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="orangeBtn" mnemonicParsing="false" onAction="#orangeAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Orange; -fx-border-color: Black;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="cyanBtn" mnemonicParsing="false" onAction="#cyanAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Cyan; -fx-border-color: Black;" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="purpleBtn" mnemonicParsing="false" onAction="#purpleAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Purple; -fx-border-color: Black;" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="blackBtn" layoutX="131.0" layoutY="18.0" mnemonicParsing="false" onAction="#blackAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Black; -fx-border-color: Black;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="whiteBtn" layoutX="162.0" layoutY="18.0" mnemonicParsing="false" onAction="#whiteAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: White; -fx-border-color: Black;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="400.0" layoutY="36.0" prefHeight="71.0" prefWidth="125.0" AnchorPane.bottomAnchor="18.0" AnchorPane.topAnchor="45.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="78.0" minWidth="10.0" prefWidth="69.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="71.0" minWidth="10.0" prefWidth="56.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="backgroundColorValue" mnemonicParsing="false" onAction="#setBackgroundColor" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: White; -fx-border-color: Black;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Label prefHeight="17.0" prefWidth="68.0" text="Background" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Label text="Border" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="borderColorValue" mnemonicParsing="false" onAction="#setBorderColor" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: Black; -fx-border-color: Black;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="14.0" layoutY="23.0" prefHeight="116.0" prefWidth="267.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="25.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="rectBtn" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rectSelected" prefHeight="40.0" prefWidth="70.0" stylesheets="style.css" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <ImageView fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/shape%20(1).png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="segmentBtn" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#segmentSelected" prefHeight="40.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/dashed-line%20(1).png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="ellipsesBtn" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ellipsesSelected" prefHeight="40.0" prefWidth="70.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/ellipse-shape%20(1).png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="polyButton" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#polyAction" prefHeight="40.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/square.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                     </children>
+                  </GridPane>
+                  <TextField fx:id="textShapeField" layoutX="289.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#textSelected" prefHeight="24.0" prefWidth="83.0" promptText="Text..." />
+                  <Button layoutX="289.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decreaseFontSize" prefHeight="20.0" prefWidth="20.0" text="-">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="labelFontSize" layoutX="324.0" layoutY="92.0" text="20" />
+                  <Button layoutX="352.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#increaseFontSize" prefHeight="20.0" prefWidth="20.0" text="+">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefHeight="451.0" prefWidth="819.0" VBox.vgrow="ALWAYS">
+               <contextMenu>
+                  <ContextMenu fx:id="contextMenu">
+                    <items>
+                      <MenuItem fx:id="copyItem" mnemonicParsing="false" onAction="#copyAction" text="Copy" />
+                        <MenuItem fx:id="pasteItem" mnemonicParsing="false" onAction="#pasteAction" text="Paste" />
+                        <MenuItem fx:id="cutItem" mnemonicParsing="false" onAction="#cutAction" text="Cut" />
+                        <Menu mnemonicParsing="false" text="Color">
+                          <items>
+                            <MenuItem mnemonicParsing="false">
+                                 <graphic>
+                                    <MenuButton mnemonicParsing="false" text="Change Border Color">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToBlack">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundBlackBtn1" arcHeight="5.0" arcWidth="5.0" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToWhite">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundWhiteBtn1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToBlue">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundBlueBtn1" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToPink">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundPinkBtn1" arcHeight="5.0" arcWidth="5.0" fill="PINK" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToGreen">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundGreenBtn1" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToYellow">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundYellowBtn1" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToRed">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundRedBtn1" arcHeight="5.0" arcWidth="5.0" fill="RED" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToOrange">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundOrangeBtn1" arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToCyan">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundCyanBtn1" arcHeight="5.0" arcWidth="5.0" fill="AQUA" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBorderToPurple">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundPurpleBtn1" arcHeight="5.0" arcWidth="5.0" fill="PURPLE" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                       </items>
+                                    </MenuButton>
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem mnemonicParsing="false">
+                                 <graphic>
+                                    <MenuButton mnemonicParsing="false" text="Change Background Color">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToBlack">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundBlackBtn" arcHeight="5.0" arcWidth="5.0" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToWhite">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundWhiteBtn" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToBlue">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundBlueBtn" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToPink">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundPinkBtn" arcHeight="5.0" arcWidth="5.0" fill="PINK" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToGreen">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundGreenBtn" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToYellow">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundYellowBtn" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToRed">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundRedBtn" arcHeight="5.0" arcWidth="5.0" fill="RED" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToOrange">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundOrangeBtn" arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToCyan">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundCyanBtn" arcHeight="5.0" arcWidth="5.0" fill="AQUA" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                          <MenuItem mnemonicParsing="false" onAction="#changeBackgroundToPurple">
+                                             <graphic>
+                                                <Rectangle fx:id="changeBackgroundPurpleBtn" arcHeight="5.0" arcWidth="5.0" fill="PURPLE" height="15.0" stroke="BLACK" strokeType="INSIDE" style="-fx-translate-x: 5;" width="50.0" />
+                                             </graphic>
+                                          </MenuItem>
+                                       </items>
+                                    </MenuButton>
+                                 </graphic>
+                              </MenuItem>
+                          </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#frontAction" text="To the Front" />
+                        <MenuItem mnemonicParsing="false" onAction="#backAction" text="To the Back" />
+                        <MenuItem fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteAction" text="Delete" />
+                        <Menu mnemonicParsing="false" text="Rotate">
+                          <items>
+                            <MenuItem mnemonicParsing="false">
+                                 <graphic>
+                                    <TextField fx:id="degreeTextField" onAction="#rotateAction" promptText="Degree" />
+                                 </graphic>
+                              </MenuItem>
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Stretch">
+                          <items>
+                              <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
+                                 <content>
+                                    <VBox prefWidth="100.0">
+                                       <children>
+                                          <TextField fx:id="stretchX" onAction="#stretchXAction" promptText="Horizontal %" />
+                                          <TextField fx:id="stretchY" onAction="#stretchYAction" promptText="Vertical %" />
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </CustomMenuItem>
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Resize">
+                          <items>
+                            <MenuItem mnemonicParsing="false">
+                                 <graphic>
+                                    <TextField fx:id="resizeTextField" onAction="#resizeAction" promptText="Percentage" />
+                                 </graphic>
+                              </MenuItem>
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Mirror...">
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#mirrorHorizontally" text="Horizontally" />
+                              <MenuItem mnemonicParsing="false" onAction="#mirrorVertically" text="Vertically" />
+                          </items>
+                        </Menu>
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+               <content>
+                  <AnchorPane fx:id="drawPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#dragDetected" onDragExited="#backAction" onMouseClicked="#drawAction" prefHeight="2000.0" prefWidth="2000.0" style="-fx-background-color: White;" />
+               </content>
+            </ScrollPane>
+            <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="38.0">
+               <children>
+                  <Label layoutX="766.0" text="Zoom" AnchorPane.rightAnchor="63.0" />
+                  <Slider fx:id="zoomSlider" blockIncrement="0.5" layoutX="712.0" layoutY="17.0" majorTickUnit="0.5" max="5.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" AnchorPane.rightAnchor="10.0" />
+                  <TextField fx:id="drawWidthTf" layoutX="14.0" layoutY="15.0" onAction="#increaseDrawPaneWidth" promptText="Draw Width" />
+                  <TextField fx:id="drawHeightTf" layoutX="187.0" layoutY="15.0" onAction="#increaseDrawPaneHeight" promptText="Draw Height" />
+                  <Label layoutX="170.0" layoutY="19.0" text="X" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
